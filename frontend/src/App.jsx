@@ -1,33 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router-dom'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 import './App.css'
+import Home from './pages/Client/Home/Home'
+import HomeAdmin from './pages/Admin/HomeAdmin/HomeAdmin'
+import AdminMusicians from './pages/Admin/HomeAdmin/AdminMusicians'
+import AdminMusicianEdit from './pages/Admin/HomeAdmin/AdminMusicianEdit';
+import AdminCategories from './pages/Admin/HomeAdmin/AdminCategories'
+import AdminRecordings from './pages/Admin/HomeAdmin/AdminRecordings'
+import AdminTags from './pages/Admin/HomeAdmin/AdminTags'
+import LoginAdmin from './pages/Admin/AuthAdmin/LoginAdmin'
+import AdminLogout from './pages/Admin/AuthAdmin/AdminLogout'
+import RegisterAdmin from './pages/Admin/AuthAdmin/RegisterAdmin'
+import ResetAdmin from './pages/Admin/AuthAdmin/ResetAdmin'
+import ForgotAdmin from './pages/Admin/AuthAdmin/ForgotAdmin'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ToastContainer />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        {/* <Route path='*' element={<NotFound />} /> */}
+
+        <Route path='/admin/home' element={<HomeAdmin />} />
+        <Route path='/admin/musicians' element={<AdminMusicians />} />
+        <Route path='/admin/musician/' element={<AdminMusicianEdit />} />
+        <Route path='/admin/musician/:musicianId' element={<AdminMusicianEdit />} />
+        <Route path='/admin/categories' element={<AdminCategories />} />
+        <Route path='/admin/recordings' element={<AdminRecordings />} />
+        <Route path='/admin/tags' element={<AdminTags />} />   
+        <Route path='/admin/login' element={<LoginAdmin />} />
+        <Route path='/admin/logout' element={<AdminLogout />} />
+        <Route path='/admin/register' element={<RegisterAdmin />} />        
+        <Route path='/admin/forgot' element={<ForgotAdmin />} />
+        <Route path='/admin/resetpassword/:resetToken' element={<ResetAdmin />} /> 
+           
+      </Routes>
     </>
   )
 }

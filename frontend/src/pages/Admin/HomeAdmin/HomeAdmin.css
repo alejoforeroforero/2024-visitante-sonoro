@@ -1,0 +1,105 @@
+.home-admin {
+  height: 50vh;
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-admin-card {
+  padding: 40px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+}
+
+.admin-grid-edit-btn {
+  background-color: rgb(74, 107, 146);
+  color: aliceblue;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(240, 102, 162);
+  }
+}
+
+.admin-delete-icon {
+  color: rgb(76, 76, 76);
+  cursor: pointer;
+  &:hover {
+    color: rgb(242, 99, 99);
+  }
+}
+
+.admin-data-grid-header {
+  margin-bottom: 6px;
+}
+
+.admin-data-grid-image {
+  width: 100px;
+  clip-path: circle(25px at center);
+}
+
+.admin-grid-crear{
+  margin-right: 15px;
+}
+
+.admin-musician-form{
+  width:80vw;
+  margin: 30px auto;
+  padding: 1vw;
+  border: 1px solid rgb(140, 140, 140);
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: var(--box-shadow);
+
+  .admin-musician-form-error{
+    color:rgb(254, 99, 99);
+    font-size: 12px;
+  }
+
+  .admin-musician-form-div{
+    margin-top: 20px;
+
+    img{
+      width:100%;
+    }
+  }
+
+  .MuiInputBase-input{
+    color:rgb(84, 83, 83);
+    padding: 35px 10px 10px 20px;
+    background-color: rgb(235, 235, 235);
+  } 
+
+  .admin-musician-form-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+
+    button{
+      padding: 6px 9px;
+      background-color: rgb(73, 124, 168);
+      cursor:pointer;
+      color:rgb(255, 255, 255);
+      border:0px;
+
+      &:hover{
+        background-color: rgb(113, 163, 208);
+      }
+    }
+  }
+}

@@ -20,7 +20,7 @@ router.get("/getadmin", protect, getAdmin);
 router.get("/loggedin", loginStatus);
 router.patch("/update", protect, updateAdmin);
 router.patch("/changepassword", protect, changePassword);
-router.post("/forgotpassword", protect, forgotPassword);
-router.put("/resetpassword/:resetToken", protect, resetPassword);
+router.post("/forgotpassword", forgotPassword);
+router.put("/resetpassword/:resetToken", resetPassword);
 
 module.exports = router;

@@ -65,6 +65,7 @@ const registerAdmin = asyncHandler(async (req, res) => {
 });
 
 const loginAdmin = asyncHandler(async (req, res) => {
+
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -83,11 +84,10 @@ const loginAdmin = asyncHandler(async (req, res) => {
 
   if (admin && passwordIsCorrect) {
     const token = generateToken(admin._id);
-
     res.cookie("token", token, {
       path: "/",
       httpOnly: true,
-      expires: new Date(Date.now() + 1000 * 86400),
+      expires: new Date(Date.now() + (3600000 * 24)),
       sameSite: "none",
       secure: true,
     });
@@ -141,20 +141,14 @@ const getAdmin = asyncHandler(async (req, res) => {
 });
 
 const loginStatus = (req, res) => {
-  console.log(req.cookies);
-
   const token = req.cookies.token;
-
   if (!token) {
-    return res.josn(false);
+    return res.json(false);
   }
-
   const verified = jwt.verify(token, process.env.JWT_SECRET);
-
   if (verified) {
     return res.json(true);
   }
-
   return res.json(false);
 };
 
@@ -242,7 +236,7 @@ const forgotPassword = asyncHandler(async (req, res) => {
     expiresAt: Date.now() + 30 * (60 * 1000),
   }).save();
 
-  const resetUrl = `${process.env.FRONTEND_URL}/resetpassword/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/admin/resetpassword/${resetToken}`;
 
   const message = `
     <h2>Hello ${admin.name} </h2>

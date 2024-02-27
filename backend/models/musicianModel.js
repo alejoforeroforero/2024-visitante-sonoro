@@ -12,6 +12,10 @@ const musicianSchema = mongoose.Schema(
       required: [true, "Please add a name"],
       trim: true,
     },
+    age: {
+      type: String,
+      trim: true,
+    },
     url: {
       type: String,
       required: [true, "Please add a url for the musician"],
